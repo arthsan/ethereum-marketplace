@@ -7,7 +7,14 @@ const lectures = [
   'Safe operator'
 ]
 
-export default function Curriculum() {
+type CurriculumProps = {
+  locked: boolean
+}
+
+const statusClass =
+  'inline-flex rounded-full px-2 text-xs font-semibold leading-5'
+
+export default function Curriculum({ locked }: CurriculumProps) {
   return (
     <section className="mx-auto max-w-5xl">
       <div className="flex flex-col">
@@ -47,8 +54,14 @@ export default function Curriculum() {
                         </div>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4">
-                        <span className="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                          Unlocked
+                        <span
+                          className={
+                            locked
+                              ? `bg-red-100 text-red-800 ${statusClass}`
+                              : `bg-green-100 text-green-800 ${statusClass}`
+                          }
+                        >
+                          {locked ? 'Locked' : 'Unlocked'}
                         </span>
                       </td>
                       <td className="whitespace-nowrap px-6 py-4 text-right text-sm font-medium">
@@ -56,7 +69,7 @@ export default function Curriculum() {
                           href="#"
                           className="text-indigo-600 hover:text-indigo-900"
                         >
-                          Play
+                          {locked ? 'Get access' : 'Play'}
                         </a>
                       </td>
                     </tr>

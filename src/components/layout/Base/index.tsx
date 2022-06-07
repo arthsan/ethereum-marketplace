@@ -1,4 +1,4 @@
-import { Navbar, Footer } from 'components/common'
+import { Navbar, Footer } from '@components/common'
 import React from 'react'
 
 interface BaseProps {

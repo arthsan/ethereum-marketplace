@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Navbar() {
   return (
     <section>
@@ -5,38 +7,48 @@ export default function Navbar() {
         <nav className="relative" aria-label="Global">
           <div className="flex justify-between">
             <div>
-              <a
-                href="#"
-                className="mr-8 font-medium text-gray-500 hover:text-gray-900"
-              >
-                Product
-              </a>
-              <a
-                href="#"
-                className="mr-8 font-medium text-gray-500 hover:text-gray-900"
-              >
-                Features
-              </a>
-              <a
-                href="#"
-                className="mr-8 font-medium text-gray-500 hover:text-gray-900"
-              >
-                Marketplace
-              </a>
+              <Link href="#">
+                <a
+                  href="#"
+                  className="mr-8 font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Home
+                </a>
+              </Link>
+              <Link href="#">
+                <a
+                  href="#"
+                  className="mr-8 font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Marketplace
+                </a>
+              </Link>
+              <Link href="#">
+                <a
+                  href="#"
+                  className="mr-8 font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Blogs
+                </a>
+              </Link>
             </div>
             <div>
-              <a
-                href="#"
-                className="mr-8 font-medium text-gray-500 hover:text-gray-900"
-              >
-                Company
-              </a>
-              <a
-                href="#"
-                className="mr-8 font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Log in
-              </a>
+              <Link href="#">
+                <a
+                  href="#"
+                  className="mr-8 font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Whishlist
+                </a>
+              </Link>
+              <Link href="#">
+                <a
+                  href="#"
+                  className="rounded-md border bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700"
+                >
+                  Connect
+                </a>
+              </Link>
             </div>
           </div>
         </nav>
