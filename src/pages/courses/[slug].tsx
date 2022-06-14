@@ -1,13 +1,13 @@
 import { Modal } from '@components/common'
 import { CourseHero, KeyPoints, Curriculum } from '@components/course'
-import { BaseLayout } from '@components/layout'
+
 import { getAllCourses } from '@content/courses/fetcher'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { CourseDetailProps } from './types'
 
 export default function CourseDetail({ course }: CourseDetailProps) {
   return (
-    <BaseLayout>
+    <>
       <CourseHero
         title={course.title}
         description={course.description}
@@ -16,7 +16,7 @@ export default function CourseDetail({ course }: CourseDetailProps) {
       <KeyPoints points={course.wsl} />
       <Curriculum locked={true} />
       <Modal />
-    </BaseLayout>
+    </>
   )
 }
 

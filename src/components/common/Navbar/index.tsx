@@ -1,11 +1,18 @@
+import { useWeb3 } from '@components/providers'
 import Link from 'next/link'
+import { Button } from '@components/common'
+import { useAccount } from '@components/web3/hooks/useAccount'
 
 export default function Navbar() {
+  const { connect, isLoading, isWeb3Loaded } = useWeb3()
+  const { account } = useAccount()
+
   return (
     <section>
+      {account}
       <div className="relative px-4 pt-6 sm:px-6 lg:px-8">
         <nav className="relative" aria-label="Global">
-          <div className="flex justify-between">
+          <div className="flex items-center justify-between">
             <div>
               <Link href="#">
                 <a
@@ -41,14 +48,21 @@ export default function Navbar() {
                   Whishlist
                 </a>
               </Link>
-              <Link href="#">
-                <a
-                  href="#"
-                  className="rounded-md border bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700"
+              {isLoading ? (
+                <Button disabled={true} onClick={connect}>
+                  Loading...
+                </Button>
+              ) : isWeb3Loaded ? (
+                <Button onClick={connect}>Connect</Button>
+              ) : (
+                <Button
+                  onClick={() =>
+                    window.open('https://metamask.io/download/', '_blank')
+                  }
                 >
-                  Connect
-                </a>
-              </Link>
+                  Install Metamask
+                </Button>
+              )}
             </div>
           </div>
         </nav>
